@@ -1,9 +1,18 @@
 cmake_minimum_required(VERSION 3.2)
 set($TARGET join_server)
 
-add_executable(${TARGET}
+set(INTERFACE_HDRS
+    interfaces/icore.h
+    interfaces/icommand_handler.h
+    interfaces/iserver.h
+    interfaces/icommand.h
+    interfaces/itables_manager.h)
+
+add_executable(${TARGET} ${INTERFACE_HDRS}
     main.cpp
-    args_parser.h args_parser.cpp)
+    args_parser.h args_parser.cpp
+    async_server.h async_server.cpp
+    session.h session.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

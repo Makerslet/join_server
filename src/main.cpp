@@ -1,6 +1,9 @@
 #include "args_parser.h"
+#include "async_server.h"
 
-#include <iostream>
+#include <boost/asio/io_context.hpp>
+
+namespace bio = boost::asio;
 
 /**
  * @brief Entry point
@@ -17,6 +20,11 @@ int main (int argc, char** argv)
     auto result = parser.parse(argc, argv);
     if(!result.has_value())
         return 0;
+
+    bio::io_context io_context;
+    async_server server(io_context, result.value(), std::shared_ptr<icore>());
+    server.start();
+    io_context.run();
 
     return 0;
 }

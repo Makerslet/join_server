@@ -5,6 +5,7 @@
 
 #include <boost/asio/ip/tcp.hpp>
 #include <boost/system/error_code.hpp>
+#include <boost/asio/streambuf.hpp>
 
 #include <memory>
 #include <functional>
@@ -54,12 +55,18 @@ private:
      */
     read_cb_signature create_read_lambda();
 
+    /**
+     * @brief Метод очищения буффера
+     */
+    void clear_buffer();
+
 private:
     bio::ip::tcp::socket _socket;
     std::shared_ptr<icore> _core;
 
+    bio::streambuf _buffer;
+    std::istream _input_stream;
     read_cb_signature _read_callback;
-    std::array<char, 1500> _buffer;
 };
 
 #endif // SESSION_H

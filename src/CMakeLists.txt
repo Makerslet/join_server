@@ -8,7 +8,12 @@ set(INTERFACE_HDRS
     interfaces/icommand.h
     interfaces/itables_manager.h)
 
-add_executable(${TARGET} ${INTERFACE_HDRS}
+set(COMMANDS_SRC
+    check_syntax_command.h check_syntax_command.cpp)
+
+add_executable(${TARGET}
+    ${INTERFACE_HDRS}
+    ${COMMANDS_SRC}
     main.cpp
     args_parser.h args_parser.cpp
     async_server.h async_server.cpp

@@ -20,6 +20,11 @@ void session::start()
     read();
 }
 
+void session::send(const std::string&)
+{
+
+}
+
 void session::read()
 {
     auto self(shared_from_this());

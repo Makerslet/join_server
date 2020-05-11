@@ -33,6 +33,11 @@ public:
      */
     void start();
 
+    /**
+     * @brief Метод отправки данных клиенту
+     */
+    void send(const std::string& message);
+
 private:
 
     /**

@@ -9,15 +9,25 @@ set(INTERFACE_HDRS
     interfaces/itables_manager.h)
 
 set(COMMANDS_SRC
-    check_syntax_command.h check_syntax_command.cpp)
+    check_syntax_command.h check_syntax_command.cpp
+    insert_command.h insert_command.cpp
+    truncate_command.h truncate_command.cpp
+    intersection_command.h intersection_command.cpp
+    symmetric_difference_command.h symmetric_difference_command.cpp)
+
+set(NETWORKING_SRC
+    async_server.h async_server.cpp
+    session.h session.cpp)
 
 add_executable(${TARGET}
     ${INTERFACE_HDRS}
     ${COMMANDS_SRC}
+    ${NETWORKING_SRC}
     main.cpp
     args_parser.h args_parser.cpp
-    async_server.h async_server.cpp
-    session.h session.cpp)
+    core.h core.cpp
+    command_handler.h command_handler.cpp
+    tables_manager.h tables_manager.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

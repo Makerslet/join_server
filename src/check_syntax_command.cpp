@@ -1,4 +1,8 @@
 #include "check_syntax_command.h"
+#include "insert_command.h"
+#include "truncate_command.h"
+#include "intersection_command.h"
+#include "symmetric_difference_command.h"
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
@@ -37,14 +41,18 @@ void check_syntax_command::execute()
 
 void check_syntax_command::handle_insert(const std::vector<std::string>& tokens)
 {
-    if(tokens.size() == 4)
+    if(tokens.size() > 2)
     {
-        //create insert_command
+        std::string table_name(tokens[1]);
+        std::vector<std::string> values(tokens.begin() + 2, tokens.end());
+        auto command = std::make_unique<insert_command>(
+                    std::move(table_name), std::move(values), _core, _session);
+        _core->add_command(std::move(command));
     }
     else
     {
-        std::string error("INSERT command contains wrong number of arguments (need 3, contains " +
-                          std::to_string(tokens.size() - 1) + ")");
+        std::string error("INSERT command needs at least 3 arguments, but contains 2" +
+                          std::to_string(tokens.size() - 1));
         throw wrong_syntax_command(error);
     }
 }
@@ -53,7 +61,9 @@ void check_syntax_command::handle_truncate(const std::vector<std::string>& token
 {
     if(tokens.size() == 2)
     {
-        //create truncate
+        std::string table_name(tokens[1]);
+        auto command = std::make_unique<truncate_command>(std::move(table_name), _core, _session);
+        _core->add_command(std::move(command));
     }
     else
     {
@@ -67,7 +77,8 @@ void check_syntax_command::handle_intersection(const std::vector<std::string>& t
 {
     if(tokens.size() == 1)
     {
-        //create intersection
+        auto command = std::make_unique<intersection_command>(_core, _session);
+        _core->add_command(std::move(command));
     }
     else
     {
@@ -81,7 +92,8 @@ void check_syntax_command::handle_symmetric_difference(const std::vector<std::st
 {
     if(tokens.size() == 1)
     {
-        //create symmetric difference
+        auto command = std::make_unique<symmetric_difference_command>(_core, _session);
+        _core->add_command(std::move(command));
     }
     else
     {

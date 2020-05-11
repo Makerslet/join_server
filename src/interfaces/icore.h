@@ -12,7 +12,6 @@ class icore
 public:
     virtual ~icore() = default;
     virtual std::shared_ptr<itables_manager> tables_manager() = 0;
-    virtual std::shared_ptr<iserver> server() = 0;
 
     virtual void add_command(std::unique_ptr<icommand>&&) = 0;
 };

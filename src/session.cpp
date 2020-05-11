@@ -1,4 +1,5 @@
 #include "session.h"
+#include "check_syntax_command.h"
 
 #include <boost/asio/read_until.hpp>
 
@@ -61,6 +62,10 @@ session::read_cb_signature session::create_read_lambda()
         {
             std::string line;
             std::getline(_input_stream, line);
+
+            auto command = std::make_unique<check_syntax_command>(std::move(line), _core, shared_from_this());
+            _core->add_command(std::move(command));
+
             read();
         }
     };

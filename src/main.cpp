@@ -1,4 +1,7 @@
 #include "args_parser.h"
+#include "command_handler.h"
+#include "tables_manager.h"
+#include "core.h"
 #include "async_server.h"
 
 #include <boost/asio/io_context.hpp>
@@ -21,9 +24,13 @@ int main (int argc, char** argv)
     if(!result.has_value())
         return 0;
 
+    auto cmd_handler = std::make_shared<command_handler>();
+    auto tables_mngr = std::make_shared<tables_manager>();
+    auto app_core = std::make_shared<core>(tables_mngr, cmd_handler);
+
     bio::io_context io_context;
-    async_server server(io_context, result.value(), std::shared_ptr<icore>());
-    server.start();
+    auto server = std::make_shared<async_server>(io_context, result.value(), app_core);
+    server->start();
     io_context.run();
 
     return 0;

@@ -10,7 +10,7 @@ else()
     project(${TARGET} VERSION 0.0.1)
 endif()
 
-find_package(Boost COMPONENTS program_options system REQUIRED)
+find_package(Boost COMPONENTS program_options system thread REQUIRED)
 find_package(Threads REQUIRED)
 
 # включаем тесты

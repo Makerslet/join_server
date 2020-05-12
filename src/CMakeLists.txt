@@ -27,7 +27,8 @@ add_executable(${TARGET}
     args_parser.h args_parser.cpp
     core.h core.cpp
     command_handler.h command_handler.cpp
-    tables_manager.h tables_manager.cpp)
+    tables_manager.h tables_manager.cpp
+    table.h table.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

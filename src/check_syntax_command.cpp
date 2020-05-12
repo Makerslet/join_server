@@ -41,7 +41,8 @@ void check_syntax_command::execute()
 
 void check_syntax_command::handle_insert(const std::vector<std::string>& tokens)
 {
-    if(tokens.size() > 2)
+    // пока заложимся на фиксированный формат таблицы
+    if(tokens.size() == 4)
     {
         std::string table_name(tokens[1]);
         std::vector<std::string> values(tokens.begin() + 2, tokens.end());
@@ -51,7 +52,7 @@ void check_syntax_command::handle_insert(const std::vector<std::string>& tokens)
     }
     else
     {
-        std::string error("INSERT command needs at least 3 arguments, but contains 2" +
+        std::string error("INSERT command needs 3 arguments, but contains " +
                           std::to_string(tokens.size() - 1));
         throw wrong_syntax_command(error);
     }

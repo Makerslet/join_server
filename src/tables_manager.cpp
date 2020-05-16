@@ -1,8 +1,5 @@
 #include "tables_manager.h"
 
-tables_manager::tables_manager()
-{}
-
 bool tables_manager::contain_table(const std::string& name)
 {
     boost::shared_lock<boost::shared_mutex> lock(_rw_lock);

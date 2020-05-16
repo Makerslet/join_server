@@ -9,7 +9,7 @@ class icommand_handler
 {
 public:
     virtual ~icommand_handler() = default;
-    virtual void push_command(std::unique_ptr<icommand>&&) = 0;
+    virtual void push_command(std::unique_ptr<execution_unit>&&) = 0;
     virtual void start_handling() = 0;
 };
 

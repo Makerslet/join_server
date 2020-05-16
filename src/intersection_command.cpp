@@ -1,12 +1,12 @@
 #include "intersection_command.h"
 
-intersection_command::intersection_command(std::shared_ptr<icore> core,
-                                   std::shared_ptr<session> session) :
-    _core(core),
-    _session(session)
+intersection_command::intersection_command(const std::string& table1_name,
+        const std::string& table2_name) :
+    _table1_name(table1_name),
+    _table2_name(table2_name)
 {}
 
-void intersection_command::execute()
+std::string intersection_command::execute(const command_context&)
 {
-
+    return "";
 }

@@ -3,6 +3,7 @@
 
 #include "interfaces/icore.h"
 #include "interfaces/icommand_handler.h"
+#include "interfaces/execution_unit.h"
 
 class core : public icore
 {
@@ -10,7 +11,7 @@ public:
     core(std::shared_ptr<itables_manager> tables_manager,
          std::shared_ptr<icommand_handler> command_handler);
     std::shared_ptr<itables_manager> tables_manager() override;
-    void add_command(std::unique_ptr<icommand>&&) override;
+    void add_command(std::unique_ptr<execution_unit>&&) override;
 
 private:
     std::shared_ptr<itables_manager> _tables_manager;

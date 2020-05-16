@@ -11,7 +11,7 @@ std::shared_ptr<itables_manager> core::tables_manager()
     return _tables_manager;
 }
 
-void core::add_command(std::unique_ptr<icommand>&& command)
+void core::add_command(std::unique_ptr<execution_unit>&& command)
 {
     _command_handler->push_command(std::move(command));
 }

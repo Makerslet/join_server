@@ -6,7 +6,8 @@ set(INTERFACE_HDRS
     interfaces/icommand_handler.h
     interfaces/iserver.h
     interfaces/icommand.h
-    interfaces/itables_manager.h)
+    interfaces/itables_manager.h
+    interfaces/execution_unit.h)
 
 set(COMMANDS_SRC
     check_syntax_command.h check_syntax_command.cpp
@@ -28,7 +29,8 @@ add_executable(${TARGET}
     core.h core.cpp
     command_handler.h command_handler.cpp
     tables_manager.h tables_manager.cpp
-    table.h table.cpp)
+    table.h table.cpp
+    command_handling_exception.h command_handling_exception.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

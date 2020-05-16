@@ -5,17 +5,17 @@
 #include "interfaces/icore.h"
 #include "session.h"
 
-class intersection_command : public icommand
+class intersection_command : public with_result_command
 {
 public:
-    intersection_command(std::shared_ptr<icore> core,
-                         std::shared_ptr<session> session);
+    intersection_command(const std::string& table1_name,
+                         const std::string& table2_name);
 
-    void execute() override;
+    std::string execute(const command_context& context);
 
 private:
-    std::shared_ptr<icore> _core;
-    std::shared_ptr<session> _session;
+    std::string _table1_name;
+    std::string _table2_name;
 };
 
 #endif // INTERSECTION_COMMAND_H

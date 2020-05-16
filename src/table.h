@@ -13,9 +13,12 @@ class table
 
 public:
     table();
+
     bool line_exists(std::size_t id);
-    std::map<std::size_t, std::string> table_content();
     bool insert(std::size_t id, const std::string& name);
+
+    std::vector<intersection_row> intersection(const table& table);
+    std::vector<sym_diff_row> sym_diff(const table& table);
 
 private:
     boost::shared_mutex _rw_mutex;

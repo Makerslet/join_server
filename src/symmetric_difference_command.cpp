@@ -1,12 +1,12 @@
 #include "symmetric_difference_command.h"
 
-symmetric_difference_command::symmetric_difference_command(std::shared_ptr<icore> core,
-                                                   std::shared_ptr<session> session) :
-    _core(core),
-    _session(session)
+symmetric_difference_command::symmetric_difference_command(const std::string& table1_name,
+        const std::string& table2_name) :
+    _table1_name(table1_name),
+    _table2_name(table2_name)
 {}
 
-void symmetric_difference_command::execute()
+std::string symmetric_difference_command::execute(const command_context&)
 {
-
+    return "";
 }

@@ -5,18 +5,14 @@
 #include "interfaces/icore.h"
 #include "session.h"
 
-class truncate_command : public icommand
+class truncate_command : public with_result_command
 {
 public:
-    truncate_command(const std::string& table_name,
-                     std::shared_ptr<icore> core,
-                     std::shared_ptr<session> session);
-    void execute() override;
+    truncate_command(const std::string& table_name);
+    std::string execute(const command_context& context) override;
 
 private:
     std::string _table_name;
-    std::shared_ptr<icore> _core;
-    std::shared_ptr<session> _session;
 };
 
 #endif // TRUNCATE_COMMAND_H

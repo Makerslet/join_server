@@ -12,6 +12,7 @@ public:
     bool contain_table(const std::string& name) override;
     std::shared_ptr<table> add_table(const std::string& name) override;
     std::shared_ptr<table> get_table(const std::string& table_name) override;
+    void remove_table(const std::string& table_name) override;
 
 private:
     boost::shared_mutex _rw_lock;

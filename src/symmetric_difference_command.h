@@ -14,7 +14,7 @@ public:
     std::string execute(const command_context& context);
 
 private:
-    std::string to_string(const std::vector<table::intersection_row>& rows);
+    std::string to_string(const std::vector<table::sym_diff_row>& rows);
 
 private:
     std::string _table1_name;

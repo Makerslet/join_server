@@ -22,7 +22,7 @@ std::string insert_command::execute(const command_context& context)
 
     if(!t_sptr->insert(id, name))
     {
-        std::string error("line with id " + std::to_string(id) + " already exists");
+        std::string error("INSERT command: line with id " + std::to_string(id) + " already exists");
         throw command_handling_exception(error);
     }
 
@@ -35,10 +35,10 @@ std::size_t insert_command::extract_id()
         return std::stoull(_values[0]);
     }
     catch(const std::invalid_argument&) {
-        throw command_handling_exception("INSERT command wrong id type");
+        throw command_handling_exception("INSERT command: wrong id type");
     }
     catch(const std::out_of_range&) {
-        throw command_handling_exception("INSERT command id out of range");
+        throw command_handling_exception("INSERT command: id out of range");
     }
 }
 

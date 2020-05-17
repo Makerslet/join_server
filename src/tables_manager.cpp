@@ -27,3 +27,9 @@ std::shared_ptr<table> tables_manager::get_table(const std::string& table_name)
         t_sptr = iter->second;
     return t_sptr;
 }
+
+void tables_manager::remove_table(const std::string& table_name)
+{
+    boost::unique_lock<boost::shared_mutex> lock(_rw_lock);
+    _tables.erase(table_name);
+}

@@ -13,26 +13,28 @@ std::string symmetric_difference_command::execute(const command_context& context
 {
     auto tables_manager = context.core->tables_manager();
 
-    if(!tables_manager->contain_table(_table1_name))
+    auto table1_sptr = tables_manager->get_table(_table1_name);
+    if(!table1_sptr)
     {
-        std::string error("server doesnt't contain table " + _table1_name);
+        std::string error("SYMMETRIC DIFFERENCE command: server doesnt't contain table " + _table1_name);
         throw command_handling_exception(error);
     }
 
-    if(!tables_manager->contain_table(_table2_name))
+    auto table2_sptr = tables_manager->get_table(_table2_name);
+    if(table2_sptr)
     {
-        std::string error("server doesnt't contain table " + _table2_name);
+        std::string error("SYMMETRIC DIFFERENCE command: server doesnt't contain table " + _table2_name);
         throw command_handling_exception(error);
     }
 
-    table table_left_copy(*tables_manager->get_table(_table1_name));
-    table table_right_copy(*tables_manager->get_table(_table2_name));
+    table table_left_copy(*table1_sptr);
+    table table_right_copy(*table2_sptr);
 
-    auto result = table_left_copy.intersection(table_right_copy);
+    std::vector<table::sym_diff_row> result = table_left_copy.sym_diff(table_right_copy);
     return to_string(result);
 }
 
-std::string symmetric_difference_command::to_string(const std::vector<table::intersection_row>& rows)
+std::string symmetric_difference_command::to_string(const std::vector<table::sym_diff_row>& rows)
 {
     std::string result;
     std::stringstream ss;

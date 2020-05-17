@@ -31,7 +31,8 @@ add_executable(${TARGET}
     tables_manager.h tables_manager.cpp
     table.h table.cpp
     command_handling_exception.h command_handling_exception.cpp
-    commands_queue.h)
+    commands_queue.h
+    signals_handler.h signals_handler.cpp)
 
 set_target_properties(${TARGET} PROPERTIES
     CXX_STANDARD 17

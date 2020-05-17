@@ -12,6 +12,8 @@ public:
          std::shared_ptr<icommand_handler> command_handler);
     std::shared_ptr<itables_manager> tables_manager() override;
     void add_command(std::unique_ptr<execution_unit>&&) override;
+    void start() override;
+    void stop() override;
 
 private:
     std::shared_ptr<itables_manager> _tables_manager;

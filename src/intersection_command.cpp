@@ -19,7 +19,7 @@ std::string intersection_command::execute(const command_context& context)
     }
 
     auto table2_sptr = tables_manager->get_table(_table2_name);
-    if(table2_sptr)
+    if(!table2_sptr)
     {
         std::string error("INTERSECION command: server doesnt't contain table " + _table2_name);
         throw command_handling_exception(error);
@@ -34,15 +34,10 @@ std::string intersection_command::execute(const command_context& context)
 
 std::string intersection_command::to_string(const std::vector<table::intersection_row>& rows)
 {
-    std::string result;
     std::stringstream ss;
 
     for(const auto& row : rows)
-    {
         ss << std::get<0>(row) << " " << std::get<1>(row) << " " << std::get<2>(row) << "\n";
-        result += ss.str();
-        ss.clear();
-    }
 
-    return result;
+    return ss.str();
 }

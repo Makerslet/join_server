@@ -21,7 +21,7 @@ std::string symmetric_difference_command::execute(const command_context& context
     }
 
     auto table2_sptr = tables_manager->get_table(_table2_name);
-    if(table2_sptr)
+    if(!table2_sptr)
     {
         std::string error("SYMMETRIC DIFFERENCE command: server doesnt't contain table " + _table2_name);
         throw command_handling_exception(error);
@@ -36,15 +36,15 @@ std::string symmetric_difference_command::execute(const command_context& context
 
 std::string symmetric_difference_command::to_string(const std::vector<table::sym_diff_row>& rows)
 {
-    std::string result;
     std::stringstream ss;
 
     for(const auto& row : rows)
     {
-        ss << std::get<0>(row) << " " << std::get<1>(row) << " " << std::get<2>(row) << "\n";
-        result += ss.str();
-        ss.clear();
+        std::string leftPart = std::get<1>(row).empty() ? "---" : std::get<1>(row);
+        std::string rightPart = std::get<2>(row).empty() ? "---" : std::get<2>(row);
+
+        ss << std::get<0>(row) << " " << leftPart << " " << rightPart << "\n";
     }
 
-    return result;
+    return ss.str();
 }

@@ -13,6 +13,7 @@ public:
     std::string execute(const command_context& context) override;
 
 private:
+    void erase_empty_tokens(std::vector<std::string>& tokens);
     void handle_insert(const std::vector<std::string>& tokens,
                        const command_context& context);
     void handle_truncate(const std::vector<std::string>& tokens,

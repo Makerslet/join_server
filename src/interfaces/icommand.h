@@ -15,7 +15,7 @@ enum class command_type : uint8_t
 
 struct command_context
 {
-    std::shared_ptr<session> sess_context;
+    std::shared_ptr<session> sess;
     std::shared_ptr<icore> core;
 };
 

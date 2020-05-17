@@ -20,6 +20,7 @@ std::string check_syntax_command::execute(const command_context& context)
 
     std::vector<std::string> tokens;
     boost::algorithm::split(tokens, _request, boost::is_space());
+    erase_empty_tokens(tokens);
 
     if(tokens[0] == "INSERT")
         handle_insert(tokens, context);
@@ -33,6 +34,13 @@ std::string check_syntax_command::execute(const command_context& context)
         throw command_handling_exception("unknown command type " + tokens[0]);
 
     return std::string();
+}
+
+void check_syntax_command::erase_empty_tokens(std::vector<std::string>& tokens)
+{
+    auto predicate = [](const std::string& token) {return token.empty();};
+    auto iter = std::remove_if(tokens.begin(), tokens.end(), predicate);
+    tokens.erase(iter, tokens.end());
 }
 
 void check_syntax_command::handle_insert(const std::vector<std::string>& tokens,

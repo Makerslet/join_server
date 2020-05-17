@@ -26,7 +26,7 @@ std::string insert_command::execute(const command_context& context)
         throw command_handling_exception(error);
     }
 
-    return "OK";
+    return std::string();
 }
 
 std::size_t insert_command::extract_id()

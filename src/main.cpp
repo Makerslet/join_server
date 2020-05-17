@@ -24,7 +24,7 @@ int main (int argc, char** argv)
     if(!result.has_value())
         return 0;
 
-    auto cmd_handler = std::make_shared<command_handler>();
+    auto cmd_handler = std::make_shared<command_handler>(2);
     auto tables_mngr = std::make_shared<tables_manager>();
     auto app_core = std::make_shared<core>(tables_mngr, cmd_handler);
 

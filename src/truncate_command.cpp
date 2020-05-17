@@ -17,5 +17,5 @@ std::string truncate_command::execute(const command_context& context)
     }
 
     tables_manager->remove_table(_table_name);
-    return "OK";
+    return std::string();
 }

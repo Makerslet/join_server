@@ -8,14 +8,34 @@
 
 class execution_unit;
 
+/**
+ * @brief Интерфейс ядра приложения
+ */
 class icore
 {
 public:
     virtual ~icore() = default;
-    virtual std::shared_ptr<itables_manager> tables_manager() = 0;
-    virtual void add_command(std::unique_ptr<execution_unit>&&) = 0;
 
+    /**
+     * @brief Метод, позволяющий получить менеджер таблиц
+     * @return Менеджер таблиц
+     */
+    virtual std::shared_ptr<itables_manager> tables_manager() = 0;
+
+    /**
+     * @brief Метод добавления единицы исполнения
+     * @param exec_unit - единица исполнения
+     */
+    virtual void add_command(std::unique_ptr<execution_unit>&& exec_unit) = 0;
+
+    /**
+     * @brief Метод запуска ядра приложения
+     */
     virtual void start() = 0;
+
+    /**
+     * @brief Метод остановки ядра приложения
+     */
     virtual void stop() = 0;
 };
 

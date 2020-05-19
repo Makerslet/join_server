@@ -13,7 +13,7 @@ check_syntax_command::check_syntax_command(const std::string& request) :
     _request(request)
 {}
 
-std::string check_syntax_command::execute(const command_context& context)
+std::optional<std::string> check_syntax_command::execute(const command_context& context)
 {
     if(_request.empty())
         throw command_handling_exception("empty request");
@@ -33,7 +33,7 @@ std::string check_syntax_command::execute(const command_context& context)
     else
         throw command_handling_exception("unknown command type " + tokens[0]);
 
-    return std::string();
+    return std::optional<std::string>();
 }
 
 void check_syntax_command::erase_empty_tokens(std::vector<std::string>& tokens)

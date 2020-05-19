@@ -24,7 +24,7 @@ public:
      * @brief Метод парсинга
      * @arg argc - количество аргументов
      * @arg argv - массив строк аргументов
-     * @return Размер блока команд
+     * @return Порт для прослушивания
      */
     std::optional<unsigned short> parse(int argc, char** argv);
 

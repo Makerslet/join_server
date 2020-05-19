@@ -12,6 +12,9 @@
 
 namespace bio = boost::asio;
 
+/**
+ * @brief Класс сессии работы с пользователем
+ */
 class session : public std::enable_shared_from_this<session>
 {
     /**
@@ -19,11 +22,14 @@ class session : public std::enable_shared_from_this<session>
      */
     using read_cb_signature = std::function<void(boost::system::error_code ec, std::size_t length)>;
 
+    /**
+     * @brief Алиас на сигнатуру коллбека для записи
+     */
     using write_cb_signature = std::function<void(boost::system::error_code ec, std::size_t length)>;
 public:
 
     /**
-     * @brief Конструктора
+     * @brief Конструктор
      * @param socket - сокет клиента
      * @param core - ядро приложения
      */

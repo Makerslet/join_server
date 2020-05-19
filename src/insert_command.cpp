@@ -7,7 +7,7 @@ insert_command::insert_command(const std::string& table_name,
     _values(values)
 {}
 
-std::string insert_command::execute(const command_context& context)
+std::optional<std::string> insert_command::execute(const command_context& context)
 {
     auto tables_manager = context.core->tables_manager();
     table_sptr t_sptr;

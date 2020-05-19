@@ -5,6 +5,9 @@
 
 #include <boost/thread/shared_mutex.hpp>
 
+/**
+ * @brief Класс реализации менеджера таблиц
+ */
 class tables_manager : public itables_manager
 {
     using table_sptr = std::shared_ptr<table>;

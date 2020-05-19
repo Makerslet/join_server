@@ -5,11 +5,18 @@
 #include "interfaces/icore.h"
 #include "session.h"
 
-class truncate_command : public with_result_command
+/**
+ * @brief Класс команды для удаления таблицы
+ */
+class truncate_command : public icommand
 {
 public:
+    /**
+     * @brief Конструктор принимающий имя таблицы
+     * @param table_name - имя таблицы
+     */
     truncate_command(const std::string& table_name);
-    std::string execute(const command_context& context) override;
+    std::optional<std::string> execute(const command_context& context) override;
 
 private:
     std::string _table_name;

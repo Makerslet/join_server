@@ -5,43 +5,36 @@
 #include "icore.h"
 
 #include <string>
+#include <optional>
 #include <memory>
 
-enum class command_type : uint8_t
-{
-    command_with_result,
-    command_without_result
-};
-
+/**
+ * @brief Класс, описывающий контекст исполнения команды
+ */
 struct command_context
 {
     std::shared_ptr<session> sess;
     std::shared_ptr<icore> core;
 };
 
+/**
+ * @brief Интерфейс команды. Позволяет выполнить команду
+ */
 class icommand
 {
 public:
+    /**
+     * @brief Деструктор
+     */
     virtual ~icommand() = default;
-    virtual std::string execute(const command_context&) = 0;
-    virtual command_type get_command_type() const = 0;
-};
 
-class without_result_command : public icommand
-{
-public:
-    command_type get_command_type() const {
-        return command_type::command_without_result;
-    }
-};
-
-
-class with_result_command : public icommand
-{
-public:
-    command_type get_command_type() const {
-        return command_type::command_with_result;
-    }
+    /**
+     * @brief Метод исполнения команды. Для исполнения требуется объект
+     * контекста. В качестве результата может быть возвращена строка
+     * @param context - контекст исполнения команды
+     * @return результат исполнения команды
+     */
+    virtual std::optional<std::string> execute(const command_context& context) = 0;
 };
 
 #endif // ICOMMAND_H

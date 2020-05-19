@@ -7,7 +7,7 @@ intersection_command::intersection_command(const std::string& table1_name,
     _table2_name(table2_name)
 {}
 
-std::string intersection_command::execute(const command_context& context)
+std::optional<std::string> intersection_command::execute(const command_context& context)
 {
     auto tables_manager = context.core->tables_manager();
 

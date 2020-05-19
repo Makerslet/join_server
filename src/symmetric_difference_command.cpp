@@ -9,7 +9,7 @@ symmetric_difference_command::symmetric_difference_command(const std::string& ta
     _table2_name(table2_name)
 {}
 
-std::string symmetric_difference_command::execute(const command_context& context)
+std::optional<std::string> symmetric_difference_command::execute(const command_context& context)
 {
     auto tables_manager = context.core->tables_manager();
 

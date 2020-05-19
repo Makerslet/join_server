@@ -33,16 +33,13 @@ command_handler::worker_handler command_handler::create_worker_handler()
             std::unique_ptr<execution_unit> exec_unit = _cmds_queue.pop();
             if(!exec_unit)
                 continue;
-            try {
 
-                auto cmd_type = exec_unit->command->get_command_type();
-                if(cmd_type == command_type::command_without_result)
-                    exec_unit->command->execute(exec_unit->context);
-                else
+            try {
+                std::optional<std::string> result = exec_unit->command->execute(exec_unit->context);
+                if(result.has_value())
                 {
-                    std::string result = exec_unit->command->execute(exec_unit->context);
-                    result += "OK\n";
-                    exec_unit->context.sess->send(result);
+                    std::string str_result = result.value() + "OK\n";
+                    exec_unit->context.sess->send(str_result);
                 }
             }
             catch(const command_handling_exception& ex) {

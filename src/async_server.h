@@ -20,6 +20,12 @@ class async_server : public iserver
 {
     using accept_cb_signature = std::function<void(boost::system::error_code, bio::ip::tcp::socket)>;
 public:
+    /**
+     * @brief Конструктор
+     * @param io_context - boost:asio context
+     * @param port - номер открываемого сервером порта
+     * @param core - ядро приложения
+     */
     async_server(bio::io_context& io_context, unsigned short port,
            std::shared_ptr<icore> core);
 
@@ -27,10 +33,15 @@ public:
     void stop() override;
 
 private:
+    /**
+     * @brief Запуск асинхронного принятия соединения
+     */
     void accept();
 
-    // callback lambdas
 private:
+    /**
+     * @brief Метод генерации колбека для обработки принятия соединения
+     */
     accept_cb_signature create_accept_lambda();
 
 private:

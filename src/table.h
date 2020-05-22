@@ -30,11 +30,30 @@ public:
     table(table& arg);
 
     /**
+     * @brief Оператор сравнения
+     * @param arg - вторая таблица
+     */
+    bool operator==(table& arg);
+
+    /**
+     * @brief Метод проверки пустоты таблицы
+     * @return Пуста ли таблица
+     */
+    bool empty();
+
+    /**
      * @brief Метод проверки наличия строки
      * @param id - идентификатор строки
      * @return Наличие строки
      */
     bool line_exists(std::size_t id);
+
+    /**
+     * @brief Метод получения значения в строке
+     * @param id - идентификатор строки
+     * @return Значение строки
+     */
+    std::string line_value(std::size_t id);
 
     /**
      * @brief Метод вставки строки

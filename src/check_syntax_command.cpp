@@ -74,8 +74,8 @@ void check_syntax_command::handle_truncate(const std::vector<std::string>& token
     }
     else
     {
-        std::string error("TRUNCATE command contains wrong number of arguments (need 1, contains " +
-                          std::to_string(tokens.size() - 1) + ")");
+        std::string error("TRUNCATE command needs 1 argument, but contains "+
+                          std::to_string(tokens.size() - 1));
         throw command_handling_exception(error);
     }
 }

@@ -8,10 +8,30 @@ table::table(table& arg) :
     _table_content(arg.get_content())
 {}
 
+bool table::operator==(table& arg)
+{
+    boost::shared_lock<boost::shared_mutex> lock_l(_rw_mutex);
+    boost::shared_lock<boost::shared_mutex> lock_r(arg._rw_mutex);
+    return _table_content == arg._table_content;
+}
+
+bool table::empty()
+{
+    boost::shared_lock<boost::shared_mutex> lock_l(_rw_mutex);
+    return _table_content.empty();
+}
+
 bool table::line_exists(std::size_t id)
 {
     boost::shared_lock<boost::shared_mutex> lock(_rw_mutex);
     return _table_content.find(id) != _table_content.end();
+}
+
+std::string table::line_value(std::size_t id)
+{
+    boost::shared_lock<boost::shared_mutex> lock(_rw_mutex);
+    auto iter = _table_content.find(id);
+    return iter != _table_content.end() ? iter->second : std::string();
 }
 
 std::map<std::size_t, std::string> table::get_content()

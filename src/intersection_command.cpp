@@ -14,14 +14,14 @@ std::optional<std::string> intersection_command::execute(const command_context& 
     auto table1_sptr = tables_manager->get_table(_table1_name);
     if(!table1_sptr)
     {
-        std::string error("INTERSECION command: server doesnt't contain table " + _table1_name);
+        std::string error("INTERSECTION command: server doesnt't contain table " + _table1_name);
         throw command_handling_exception(error);
     }
 
     auto table2_sptr = tables_manager->get_table(_table2_name);
     if(!table2_sptr)
     {
-        std::string error("INTERSECION command: server doesnt't contain table " + _table2_name);
+        std::string error("INTERSECTION command: server doesnt't contain table " + _table2_name);
         throw command_handling_exception(error);
     }
 

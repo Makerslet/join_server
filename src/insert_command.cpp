@@ -32,7 +32,12 @@ std::optional<std::string> insert_command::execute(const command_context& contex
 std::size_t insert_command::extract_id()
 {
     try {
-        return std::stoull(_values[0]);
+        long long value = std::stoll(_values[0]);
+
+        if(value < 0)
+            throw command_handling_exception("INSERT command: id out of range");
+        else
+            return value;
     }
     catch(const std::invalid_argument&) {
         throw command_handling_exception("INSERT command: wrong id type");

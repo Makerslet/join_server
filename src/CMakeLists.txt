@@ -69,7 +69,7 @@ set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
 set(CPACK_PACKAGE_CONTACT oshuev.valery@yandex.ru)
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-program-options,libboost-system") 
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-program-options,libboost-system,libboost-thread")
 
 # подключем генератор пакетов
 include(CPack)

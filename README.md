@@ -1,6 +1,5 @@
-Сетевой сервер для работы с таблицами фиксированного формата вида: id - value
-id должен иметь тип uint
-value должен иметь тип string
+Сетевой сервер для работы с таблицами фиксированного формата вида: id - value. Id должен иметь тип uint,
+value должен иметь тип string.
 
 
 ## Список поддерживаемых команд и их формат:
@@ -21,8 +20,10 @@ value должен иметь тип string
 
 **Примеры**: 
 
-`join_server_--port 12345`
-`INSERT_A 0 hello_world;`
-`TRUNCATE_A;`
-`INTERSECTION_A B;`
-`SYMMETRIC_DIFFERENCE_A B;`
+```bash
+join_server --port 12345
+INSERT A 0 hello_world;
+TRUNCATE A;
+INTERSECTION A B;
+SYMMETRIC_DIFFERENCE A B;
+```

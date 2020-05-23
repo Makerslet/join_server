@@ -1,0 +1,29 @@
+<map id="src/interfaces/itables_manager.h" name="src/interfaces/itables_manager.h">
+<area shape="rect" id="node2" href="$icore_8h.html" title="src/interfaces/icore.h" alt="" coords="1073,95,1232,121"/>
+<area shape="rect" id="node27" href="$tables__manager_8h.html" title="src/tables_manager.h" alt="" coords="1850,95,2012,121"/>
+<area shape="rect" id="node3" href="$async__server_8h.html" title="src/async_server.h" alt="" coords="1445,169,1588,196"/>
+<area shape="rect" id="node6" href="$session_8h.html" title="src/session.h" alt="" coords="1099,169,1206,196"/>
+<area shape="rect" id="node7" href="$icommand_8h.html" title="src/interfaces/icommand.h" alt="" coords="814,244,1008,271"/>
+<area shape="rect" id="node8" href="$check__syntax__command_8h.html" title="src/check_syntax_command.h" alt="" coords="882,326,1100,353"/>
+<area shape="rect" id="node11" href="$insert__command_8h.html" title="src/insert_command.h" alt="" coords="49,326,216,353"/>
+<area shape="rect" id="node13" href="$truncate__command_8h.html" title="src/truncate_command.h" alt="" coords="1386,326,1569,353"/>
+<area shape="rect" id="node15" href="$intersection__command_8h.html" title="src/intersection_command.h" alt="" coords="650,326,857,353"/>
+<area shape="rect" id="node17" href="$symmetric__difference__command_8h.html" title="src/symmetric_difference\l_command.h" alt="" coords="1124,319,1311,360"/>
+<area shape="rect" id="node22" href="$core_8h.html" title="src/core.h" alt="" coords="224,415,310,442"/>
+<area shape="rect" id="node25" href="$signals__handler_8h.html" title="src/signals_handler.h" alt="" coords="1677,169,1836,196"/>
+<area shape="rect" id="node4" href="$async__server_8cpp.html" title="src/async_server.cpp" alt="" coords="1438,244,1595,271"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="1580,497,1685,524"/>
+<area shape="rect" id="node10" href="$session_8cpp.html" title="src/session.cpp" alt="" coords="1040,415,1161,442"/>
+<area shape="rect" id="node19" href="$execution__unit_8h.html" title="src/interfaces/execution\l_unit.h" alt="" coords="447,319,626,360"/>
+<area shape="rect" id="node24" href="$icommand__handler_8h.html" title="src/interfaces/icommand\l_handler.h" alt="" coords="240,319,422,360"/>
+<area shape="rect" id="node9" href="$check__syntax__command_8cpp.html" title="src/check_syntax_command.cpp" alt="" coords="782,415,1016,442"/>
+<area shape="rect" id="node12" href="$insert__command_8cpp.html" title="src/insert_command.cpp" alt="" coords="19,415,200,442"/>
+<area shape="rect" id="node14" href="$truncate__command_8cpp.html" title="src/truncate_command.cpp" alt="" coords="1397,415,1596,442"/>
+<area shape="rect" id="node16" href="$intersection__command_8cpp.html" title="src/intersection_command.cpp" alt="" coords="536,415,758,442"/>
+<area shape="rect" id="node18" href="$symmetric__difference__command_8cpp.html" title="src/symmetric_difference\l_command.cpp" alt="" coords="1186,408,1372,449"/>
+<area shape="rect" id="node20" href="$command__handler_8h.html" title="src/command_handler.h" alt="" coords="334,415,512,442"/>
+<area shape="rect" id="node21" href="$command__handler_8cpp.html" title="src/command_handler.cpp" alt="" coords="334,497,526,524"/>
+<area shape="rect" id="node23" href="$core_8cpp.html" title="src/core.cpp" alt="" coords="209,497,309,524"/>
+<area shape="rect" id="node26" href="$signals__handler_8cpp.html" title="src/signals_handler.cpp" alt="" coords="1670,244,1843,271"/>
+<area shape="rect" id="node28" href="$tables__manager_8cpp.html" title="src/tables_manager.cpp" alt="" coords="1968,169,2144,196"/>
+</map>

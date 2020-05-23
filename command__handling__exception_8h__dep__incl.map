@@ -1,0 +1,9 @@
+<map id="src/command_handling_exception.h" name="src/command_handling_exception.h">
+<area shape="rect" id="node2" href="$check__syntax__command_8cpp.html" title="src/check_syntax_command.cpp" alt="" coords="5,102,239,129"/>
+<area shape="rect" id="node3" href="$command__handler_8cpp.html" title="src/command_handler.cpp" alt="" coords="263,102,455,129"/>
+<area shape="rect" id="node4" href="$command__handling__exception_8cpp.html" title="src/command_handling\l_exception.cpp" alt="" coords="479,95,653,136"/>
+<area shape="rect" id="node5" href="$insert__command_8cpp.html" title="src/insert_command.cpp" alt="" coords="677,102,858,129"/>
+<area shape="rect" id="node6" href="$intersection__command_8cpp.html" title="src/intersection_command.cpp" alt="" coords="882,102,1103,129"/>
+<area shape="rect" id="node7" href="$symmetric__difference__command_8cpp.html" title="src/symmetric_difference\l_command.cpp" alt="" coords="1127,95,1314,136"/>
+<area shape="rect" id="node8" href="$truncate__command_8cpp.html" title="src/truncate_command.cpp" alt="" coords="1339,102,1537,129"/>
+</map>
